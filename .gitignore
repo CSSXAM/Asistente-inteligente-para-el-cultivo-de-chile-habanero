@@ -1,0 +1,38 @@
+# Entornos virtuales y cach?s de Python
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Archivos temporales
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Credenciales y configuraci?n local
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+*.pem
+*.key
+
+# Datos locales, conservando la documentaci?n
+/datasets/*
+!/datasets/README.md
+
+# Modelos entrenados y puntos de control
+*.keras
+*.h5
+*.hdf5
+*.ckpt
+*.ckpt.*
+saved_model/
+checkpoints/
