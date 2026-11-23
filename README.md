@@ -81,7 +81,7 @@ Actualmente se cuenta con investigación preliminar sobre las características d
 - [x] Definición inicial de objetivos y alcance.
 - [x] Selección de tecnologías.
 - [x] Planificación del sprint en Jira.
-- [ ] Implementación del algoritmo A*.
+- [x] Implementación del algoritmo A*.
 - [ ] Implementación del controlador de lógica difusa.
 - [ ] Entrenamiento y evaluación de la CNN.
 - [ ] Desarrollo de la aplicación web.
