@@ -94,3 +94,63 @@
   color: #f87171;
   font-weight: bold;
 }
+
+/* Prioridad como círculo dentro del punto de interés */
+.celda.tipo-4 {
+  background-color: #eab308;
+}
+
+.indicador-prioridad {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Flechas superpuestas a la cuadrícula: no bloquean los clics */
+.envoltura-cuadricula {
+  position: relative;
+  width: max-content;
+  margin: 20px auto;
+}
+.envoltura-cuadricula .cuadricula {
+  margin: 0;
+}
+.flechas-recorrido {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Ruta de alto contraste con flechas claramente visibles */
+.trayectoria-borde {
+  fill: none;
+  stroke: #111827;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.trayectoria-linea {
+  fill: none;
+  stroke: #fff7ed;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.trayectoria-flecha {
+  fill: #ef4444;
+  stroke: #ffffff;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}

@@ -104,3 +104,39 @@ def astar(parcela, inicio, destino):
                 )
 
     return None
+
+
+def ruta_inspeccion(parcela, inicio, destino, puntos):
+    """Visita todos los puntos por prioridad (alta, media, baja).
+
+    Dentro de cada prioridad elige el siguiente punto alcanzable con
+    menor costo A*. Si alguno es inaccesible, no entrega ruta parcial.
+    """
+    orden = {"alta": 0, "media": 1, "baja": 2}
+    restantes = list(puntos)
+    actual = tuple(inicio)
+    recorrido = [actual]
+    visitados = []
+
+    for prioridad in ("alta", "media", "baja"):
+        grupo = [p for p in restantes if p["prioridad"] == prioridad]
+        while grupo:
+            candidatos = []
+            for punto in grupo:
+                posicion = tuple(punto["posicion"])
+                tramo = astar(parcela, actual, posicion)
+                if tramo is not None:
+                    candidatos.append((len(tramo) - 1, posicion, punto, tramo))
+            if not candidatos:
+                return None, visitados, [p["posicion"] for p in grupo]
+            _, posicion, elegido, tramo = min(candidatos, key=lambda x: (x[0], x[1]))
+            recorrido.extend(tramo[1:])
+            actual = posicion
+            visitados.append(elegido)
+            grupo.remove(elegido)
+
+    ultimo_tramo = astar(parcela, actual, tuple(destino))
+    if ultimo_tramo is None:
+        return None, visitados, [list(destino)]
+    recorrido.extend(ultimo_tramo[1:])
+    return recorrido, visitados, []
