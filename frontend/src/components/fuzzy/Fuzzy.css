@@ -198,7 +198,6 @@
 .fuzzy-result-item strong {
   font-size: 18px;
   color: #f3f4f6;
-  text-transform: capitalize;
 }
 
 /* Historial */
@@ -208,7 +207,8 @@
 }
 
 .fuzzy-table-container {
-  overflow-x: auto;
+  max-height: 420px;
+  overflow: auto;
 }
 
 .fuzzy-history table {
@@ -226,6 +226,9 @@
 }
 
 .fuzzy-history th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   color: #d1d5db;
   background: #262626;
   font-weight: 500;
@@ -255,4 +258,16 @@
   .fuzzy-header h2 {
     font-size: 23px;
   }
+}
+.fuzzy-history tbody tr:hover {
+  background: #262626;
+}
+
+.fuzzy-retry {
+  padding: 8px 16px;
+  background: #15803d;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }

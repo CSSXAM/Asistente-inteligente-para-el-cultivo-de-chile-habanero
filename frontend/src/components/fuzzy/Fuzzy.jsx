@@ -1,16 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Fuzzy.css";
 
 const API_URL = "http://127.0.0.1:8000/api/fuzzy/riego";
 
+const HISTORIAL_URL = "http://127.0.0.1:8000/api/fuzzy/historial";
+
 const ETAPAS = [
-  { id: 1, nombre: "Vivero" },
-  { id: 2, nombre: "Trasplante" },
-  { id: 3, nombre: "Vegetativo" },
-  { id: 4, nombre: "Floración" },
-  { id: 5, nombre: "Fructificación" },
-  { id: 6, nombre: "Cosecha" },
+  { id: 1, nombre: "Vivero", clave: "vivero" },
+  { id: 2, nombre: "Trasplante", clave: "trasplante" },
+  { id: 3, nombre: "Vegetativo", clave: "vegetativo" },
+  { id: 4, nombre: "Floración", clave: "floracion" },
+  { id: 5, nombre: "Fructificación", clave: "fructificacion" },
+  { id: 6, nombre: "Cosecha", clave: "cosecha" },
 ];
+
+function nombreEtapa(clave) {
+  return ETAPAS.find((item) => item.clave === clave)?.nombre ?? clave;
+}
+
+function formatearFecha(fecha) {
+  const [dia, hora] = fecha.split("T");
+  return `${dia.split("-").reverse().join("/")} ${hora ?? ""}`;
+}
 
 export default function Fuzzy() {
   const [humedad, setHumedad] = useState(40);
@@ -20,6 +31,43 @@ export default function Fuzzy() {
   const [resultado, setResultado] = useState(null);
   const [calculando, setCalculando] = useState(false);
   const [error, setError] = useState("");
+
+  const [historial, setHistorial] = useState([]);
+  const [cargandoHistorial, setCargandoHistorial] = useState(true);
+  const [errorHistorial, setErrorHistorial] = useState("");
+  const [revisionHistorial, setRevisionHistorial] = useState(0);
+
+  function actualizarHistorial() {
+    setCargandoHistorial(true);
+    setErrorHistorial("");
+    setRevisionHistorial((revision) => revision + 1);
+  }
+
+  useEffect(() => {
+    const control = new AbortController();
+
+    fetch(HISTORIAL_URL, { signal: control.signal })
+      .then((respuesta) => {
+        if (!respuesta.ok) {
+          throw new Error("No fue posible consultar el historial.");
+        }
+        return respuesta.json();
+      })
+      .then((datos) => {
+        if (!Array.isArray(datos)) {
+          throw new Error("El historial recibido no es válido.");
+        }
+        if (!control.signal.aborted) setHistorial(datos);
+      })
+      .catch((err) => {
+        if (!control.signal.aborted) setErrorHistorial(err.message);
+      })
+      .finally(() => {
+        if (!control.signal.aborted) setCargandoHistorial(false);
+      });
+
+    return () => control.abort();
+  }, [revisionHistorial]);
 
   const minutos = resultado?.minutos_riego ?? 0;
   const porcentaje = (minutos / 60) * 100;
@@ -76,6 +124,7 @@ export default function Fuzzy() {
       }
 
       setResultado(datos);
+      actualizarHistorial();
     } catch (err) {
       setError(err.message);
     } finally {
@@ -291,7 +340,7 @@ export default function Fuzzy() {
               <span>Etapa evaluada</span>
               <strong>
                 {resultado
-                  ? resultado.etapa
+                  ? nombreEtapa(resultado.etapa)
                   : "--"}
               </strong>
             </div>
@@ -300,7 +349,7 @@ export default function Fuzzy() {
         </div>
       </div>
 
-      {/* Historial pendiente de integración */}
+      {/* Historial de recomendaciones */}
 
       <div className="fuzzy-panel fuzzy-history">
         <h3>Historial de recomendaciones</h3>
@@ -319,11 +368,35 @@ export default function Fuzzy() {
             </thead>
 
             <tbody>
-              <tr>
-                <td colSpan="6" className="fuzzy-empty">
-                  Historial pendiente de integración con MySQL.
-                </td>
-              </tr>
+              {cargandoHistorial ? (
+                <tr>
+                  <td colSpan="6" className="fuzzy-empty">Cargando historial...</td>
+                </tr>
+              ) : errorHistorial ? (
+                <tr>
+                  <td colSpan="6" className="fuzzy-empty">
+                    <p className="fuzzy-error" role="alert">{errorHistorial}</p>
+                    <button type="button" className="fuzzy-retry" onClick={actualizarHistorial}>
+                      Reintentar
+                    </button>
+                  </td>
+                </tr>
+              ) : historial.length === 0 ? (
+                <tr>
+                  <td colSpan="6" className="fuzzy-empty">No hay recomendaciones registradas.</td>
+                </tr>
+              ) : (
+                historial.map((registro) => (
+                  <tr key={registro.id}>
+                    <td>{formatearFecha(registro.fecha_registro)}</td>
+                    <td>{registro.humedad} %</td>
+                    <td>{registro.temperatura} °C</td>
+                    <td>{nombreEtapa(registro.etapa)}</td>
+                    <td>{Number(registro.minutos_riego).toFixed(2)} min</td>
+                    <td>{Number(registro.litros_estimados_por_gotero).toFixed(3)} L</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

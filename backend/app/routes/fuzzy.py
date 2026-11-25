@@ -1,7 +1,16 @@
+import logging
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
+from mysql.connector import Error as MySQLError
 
 from ..modules.fuzzy.controller import calcular_riego
+from ..modules.fuzzy.repository import (
+    guardar_recomendacion,
+    obtener_historial
+)
+
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(
     prefix="/api/fuzzy",
@@ -16,7 +25,7 @@ class SolicitudRiego(BaseModel):
 
 
 @router.post("/riego")
-async def recomendar_riego(datos: SolicitudRiego):
+def recomendar_riego(datos: SolicitudRiego):
     try:
         resultado = calcular_riego(
             humedad_actual=datos.humedad,
@@ -24,10 +33,35 @@ async def recomendar_riego(datos: SolicitudRiego):
             etapa_actual=datos.etapa
         )
 
+        guardar_recomendacion(resultado)
+
         return resultado
 
     except ValueError as error:
         raise HTTPException(
             status_code=400,
             detail=str(error)
+        )
+
+    except MySQLError:
+        logger.exception("Error al guardar la recomendación de riego")
+
+        raise HTTPException(
+            status_code=500,
+            detail="No fue posible guardar la recomendación de riego."
+        )
+
+@router.get("/historial")
+def consultar_historial():
+    try:
+        registros = obtener_historial()
+
+        return registros
+
+    except MySQLError:
+        logger.exception("Error al consultar el historial de riego")
+
+        raise HTTPException(
+            status_code=500,
+            detail="No fue posible consultar el historial de riego."
         )
