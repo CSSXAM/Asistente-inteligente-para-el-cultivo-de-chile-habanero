@@ -1,0 +1,258 @@
+.fuzzy-module {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  color: #f3f4f6;
+}
+
+.fuzzy-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.fuzzy-header h2 {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.fuzzy-header p {
+  color: #9ca3af;
+  margin: 0;
+}
+
+.fuzzy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.fuzzy-panel {
+  background: #1c1c1c;
+  border: 1px solid #363636;
+  border-radius: 12px;
+  padding: 24px;
+  box-sizing: border-box;
+  min-width: 0;
+  text-align: left;
+}
+
+.fuzzy-panel h3 {
+  font-size: 19px;
+  margin: 0 0 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #363636;
+}
+
+/* Campos de configuración */
+
+.fuzzy-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.fuzzy-field label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.fuzzy-field input[type="number"],
+.fuzzy-field select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #525252;
+  border-radius: 6px;
+  background: #303030;
+  color: #ffffff;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.fuzzy-field input[type="number"]:focus,
+.fuzzy-field select:focus {
+  outline: 1px solid #22c55e;
+  border-color: #22c55e;
+}
+
+.fuzzy-field input[type="range"] {
+  width: 100%;
+  margin: 4px 0;
+  accent-color: #22c55e;
+  cursor: pointer;
+}
+
+.fuzzy-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.fuzzy-field small {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Botón de cálculo */
+
+.fuzzy-button {
+  width: 100%;
+  padding: 14px;
+  background: #15803d;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fuzzy-button:hover:not(:disabled) {
+  background: #16a34a;
+}
+
+.fuzzy-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fuzzy-error {
+  color: #f87171;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+/* Indicador semicircular */
+
+.fuzzy-gauge {
+  max-width: 320px;
+  margin: 15px auto 0;
+}
+
+.fuzzy-gauge svg {
+  display: block;
+  width: 100%;
+}
+
+.fuzzy-gauge-background {
+  fill: none;
+  stroke: #383838;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.fuzzy-gauge-progress {
+  fill: none;
+  stroke: #22c55e;
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s ease;
+}
+
+.fuzzy-gauge-value {
+  fill: #4ade80;
+  font-size: 32px;
+  font-weight: bold;
+  text-anchor: middle;
+}
+
+.fuzzy-gauge-unit {
+  fill: #9ca3af;
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.fuzzy-result-status {
+  text-align: center;
+  color: #d1d5db;
+  margin: 16px 0 24px;
+}
+
+/* Información de la recomendación */
+
+.fuzzy-result-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fuzzy-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #363636;
+  padding-top: 16px;
+}
+
+.fuzzy-result-item span {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.fuzzy-result-item strong {
+  font-size: 18px;
+  color: #f3f4f6;
+  text-transform: capitalize;
+}
+
+/* Historial */
+
+.fuzzy-history {
+  margin-top: 24px;
+}
+
+.fuzzy-table-container {
+  overflow-x: auto;
+}
+
+.fuzzy-history table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.fuzzy-history th,
+.fuzzy-history td {
+  padding: 14px;
+  text-align: left;
+  border-bottom: 1px solid #363636;
+  white-space: nowrap;
+}
+
+.fuzzy-history th {
+  color: #d1d5db;
+  background: #262626;
+  font-weight: 500;
+}
+
+.fuzzy-history .fuzzy-empty {
+  text-align: center;
+  color: #9ca3af;
+  padding: 32px 16px;
+}
+
+/* Adaptación a pantallas pequeñas */
+
+@media (max-width: 768px) {
+  .fuzzy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fuzzy-module {
+    padding: 24px 16px;
+  }
+
+  .fuzzy-panel {
+    padding: 18px;
+  }
+
+  .fuzzy-header h2 {
+    font-size: 23px;
+  }
+}

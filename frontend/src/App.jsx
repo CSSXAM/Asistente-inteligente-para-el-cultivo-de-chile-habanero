@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Astar from "./components/astar/Astar";
+import Fuzzy from "./components/fuzzy/Fuzzy";
 import "./App.css";
 
 export default function App() {
@@ -36,8 +37,7 @@ export default function App() {
       </div>
 
       <div hidden={modulo !== "fuzzy"}>
-        <h2>Controlador difuso de riego</h2>
-        <p>Módulo en desarrollo.</p>
+        <Fuzzy />
       </div>
     </div>
   );
