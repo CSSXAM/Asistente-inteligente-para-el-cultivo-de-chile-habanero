@@ -1,0 +1,82 @@
+[
+    {
+        "epoca": 1,
+        "train_loss": 0.3900658588877992,
+        "train_accuracy": 0.8826589595375722,
+        "val_loss": 0.2073141007257211,
+        "val_accuracy": 0.9329758713136729,
+        "duracion_segundos": 21.733694314956665
+    },
+    {
+        "epoca": 2,
+        "train_loss": 0.20155423390598312,
+        "train_accuracy": 0.9502890173410404,
+        "val_loss": 0.14423427537043676,
+        "val_accuracy": 0.9517426273458445,
+        "duracion_segundos": 13.16727590560913
+    },
+    {
+        "epoca": 3,
+        "train_loss": 0.16608114074592645,
+        "train_accuracy": 0.9554913294797688,
+        "val_loss": 0.12758134045805433,
+        "val_accuracy": 0.9490616621983914,
+        "duracion_segundos": 13.708770275115967
+    },
+    {
+        "epoca": 4,
+        "train_loss": 0.14573428443703004,
+        "train_accuracy": 0.9566473988439307,
+        "val_loss": 0.11260364608135044,
+        "val_accuracy": 0.9624664879356568,
+        "duracion_segundos": 13.067483186721802
+    },
+    {
+        "epoca": 5,
+        "train_loss": 0.12704729519547583,
+        "train_accuracy": 0.9578034682080925,
+        "val_loss": 0.10710018371848574,
+        "val_accuracy": 0.9571045576407506,
+        "duracion_segundos": 9.580026388168335
+    },
+    {
+        "epoca": 6,
+        "train_loss": 0.10402478761755662,
+        "train_accuracy": 0.9705202312138729,
+        "val_loss": 0.09825758532129088,
+        "val_accuracy": 0.9651474530831099,
+        "duracion_segundos": 9.531583309173584
+    },
+    {
+        "epoca": 7,
+        "train_loss": 0.10167095400931346,
+        "train_accuracy": 0.9705202312138729,
+        "val_loss": 0.09619197147541328,
+        "val_accuracy": 0.9651474530831099,
+        "duracion_segundos": 9.601947546005249
+    },
+    {
+        "epoca": 8,
+        "train_loss": 0.09254495300180306,
+        "train_accuracy": 0.9745664739884393,
+        "val_loss": 0.09014498386482131,
+        "val_accuracy": 0.9731903485254692,
+        "duracion_segundos": 9.52279281616211
+    },
+    {
+        "epoca": 9,
+        "train_loss": 0.0907777271174282,
+        "train_accuracy": 0.9699421965317919,
+        "val_loss": 0.09191872003730436,
+        "val_accuracy": 0.967828418230563,
+        "duracion_segundos": 9.459563493728638
+    },
+    {
+        "epoca": 10,
+        "train_loss": 0.07959947419175178,
+        "train_accuracy": 0.9797687861271677,
+        "val_loss": 0.08509632653429425,
+        "val_accuracy": 0.9731903485254692,
+        "duracion_segundos": 9.75393295288086
+    }
+]

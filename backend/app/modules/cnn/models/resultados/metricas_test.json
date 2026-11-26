@@ -1,0 +1,45 @@
+{
+    "total_imagenes": 372,
+    "loss": 0.131243319601141,
+    "accuracy": 0.9435483870967742,
+    "precision_macro": 0.9548315321042594,
+    "recall_macro": 0.9306437535739007,
+    "f1_macro": 0.9397849462365591,
+    "matriz_confusion": [
+        [
+            129,
+            20
+        ],
+        [
+            1,
+            222
+        ]
+    ],
+    "reporte_clasificacion": {
+        "enferma": {
+            "precision": 0.9923076923076923,
+            "recall": 0.8657718120805369,
+            "f1-score": 0.9247311827956989,
+            "support": 149.0
+        },
+        "sana": {
+            "precision": 0.9173553719008265,
+            "recall": 0.9955156950672646,
+            "f1-score": 0.9548387096774194,
+            "support": 223.0
+        },
+        "accuracy": 0.9435483870967742,
+        "macro avg": {
+            "precision": 0.9548315321042594,
+            "recall": 0.9306437535739007,
+            "f1-score": 0.9397849462365591,
+            "support": 372.0
+        },
+        "weighted avg": {
+            "precision": 0.9473765970100281,
+            "recall": 0.9435483870967742,
+            "f1-score": 0.9427795120823217,
+            "support": 372.0
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "tipo": "Evaluación externa exploratoria",
+    "total_imagenes": 15,
+    "coincidencias": 5,
+    "porcentaje_coincidencia": 33.33333333333333,
+    "limitacion": "Etiquetas de referencia sin confirmación fitosanitaria. No constituye una validación clínica ni de campo.",
+    "predicciones": [
+        {
+            "imagen": "sana_001.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.770389199256897,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_002.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "sana",
+            "confianza": 0.8110193014144897,
+            "coincidencia": true
+        },
+        {
+            "imagen": "sana_003.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.8418180346488953,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_004.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "sana",
+            "confianza": 0.6267510056495667,
+            "coincidencia": true
+        },
+        {
+            "imagen": "sana_005.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.9525755643844604,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_006.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.83561110496521,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_007.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.9343053102493286,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_008.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.9606408476829529,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_009.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.9873933792114258,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_010.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.8290841579437256,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_011.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "sana",
+            "confianza": 0.7438652515411377,
+            "coincidencia": true
+        },
+        {
+            "imagen": "sana_012.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.9139336943626404,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_013.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "sana",
+            "confianza": 0.5564748644828796,
+            "coincidencia": true
+        },
+        {
+            "imagen": "sana_014.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "enferma",
+            "confianza": 0.81963711977005,
+            "coincidencia": false
+        },
+        {
+            "imagen": "sana_015.jpg",
+            "clase_referencia": "sana",
+            "prediccion": "sana",
+            "confianza": 0.6390378475189209,
+            "coincidencia": true
+        }
+    ]
+}

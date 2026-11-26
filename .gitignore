@@ -36,3 +36,7 @@ secrets.json
 *.ckpt.*
 saved_model/
 checkpoints/
+
+# Modelos entrenados con PyTorch
+*.pt
+*.pth
