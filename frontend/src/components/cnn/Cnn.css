@@ -1,0 +1,457 @@
+
+/* Contenedor principal */
+
+.cnn-module {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Encabezado */
+
+.cnn-header {
+  margin-bottom: 24px;
+}
+
+.cnn-header h2 {
+  margin: 0 0 8px;
+}
+
+.cnn-header p {
+  margin: 0;
+  opacity: 0.75;
+}
+
+#cnn-inicio {
+  scroll-margin-top: 20px;
+}
+
+/* Barra de acciones */
+
+.cnn-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cnn-modo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #68756c;
+}
+
+/* Distribución de paneles */
+
+.cnn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cnn-panel {
+  background: #ffffff;
+  color: #25332a;
+  border: 1px solid #dce3de;
+  border-radius: 12px;
+  padding: 24px;
+  min-width: 0;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.cnn-panel h3 {
+  margin: 0 0 20px;
+}
+
+/* Vista previa de fotografías */
+
+.cnn-preview {
+  width: 100%;
+  height: 280px;
+  border: 2px dashed #cbd8ce;
+  border-radius: 10px;
+  background: #f4f7f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.cnn-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cnn-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #6b786e;
+}
+
+/* Selección de fotografía */
+
+.cnn-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cnn-field label {
+  font-weight: 600;
+}
+
+.cnn-field input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dce3de;
+  border-radius: 6px;
+  padding: 10px;
+  font: inherit;
+}
+
+.cnn-field small {
+  color: #68756c;
+}
+
+/* Botón de análisis */
+
+.cnn-button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: #287849;
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cnn-button:hover:not(:disabled) {
+  background: #20633b;
+}
+
+.cnn-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Diagnóstico neuronal */
+
+.cnn-diagnostico {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cnn-diagnostico span {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cnn-diagnostico strong {
+  font-size: 44px;
+}
+
+.cnn-diagnostico.sana {
+  background: #eaf5ed;
+  color: #287849;
+}
+
+.cnn-diagnostico.enferma {
+  background: #fceceb;
+  color: #b34036;
+}
+
+/* Probabilidades neuronales */
+
+.cnn-probabilidades {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.cnn-probabilidad-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cnn-barra {
+  width: 100%;
+  height: 12px;
+  background: #e7ebe8;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cnn-barra-sana,
+.cnn-barra-enferma {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.4s ease;
+}
+
+.cnn-barra-sana {
+  background: #39834f;
+}
+
+.cnn-barra-enferma {
+  background: #c75b50;
+}
+
+/* Recomendaciones */
+
+.cnn-recomendacion {
+  border-top: 1px solid #dce3de;
+  padding-top: 16px;
+}
+
+.cnn-recomendacion h4 {
+  margin: 0 0 8px;
+}
+
+.cnn-recomendacion p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.cnn-resultado-vacio {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #68756c;
+}
+
+/* Advertencias */
+
+.cnn-advertencia {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: #fff8e8;
+  border: 1px solid #e8d6a7;
+  border-radius: 8px;
+  color: #795b20;
+}
+
+.cnn-advertencia p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+/* Mensajes de error */
+
+.cnn-error {
+  color: #b34036;
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+/* Historial de clasificaciones */
+
+.cnn-history {
+  margin-top: 24px;
+}
+
+.cnn-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cnn-history-header h3 {
+  margin: 0;
+}
+
+.cnn-table-container {
+  overflow-x: auto;
+}
+
+.cnn-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.cnn-table-container th,
+.cnn-table-container td {
+  padding: 14px 12px;
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid #e2e8e3;
+}
+
+.cnn-table-container th {
+  background: #f0f5f1;
+  white-space: nowrap;
+}
+
+.cnn-table-container tbody tr {
+  transition: background 0.2s;
+}
+
+.cnn-table-container tbody tr:hover {
+  background: #f4f7f4;
+}
+
+.cnn-nombre-imagen {
+  max-width: 180px;
+  overflow-wrap: anywhere;
+}
+
+/* Etiquetas de clasificación */
+
+.cnn-etiqueta {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cnn-etiqueta.sana {
+  background: #eaf5ed;
+  color: #287849;
+}
+
+.cnn-etiqueta.enferma {
+  background: #fceceb;
+  color: #b34036;
+}
+
+.cnn-table-container .cnn-empty {
+  padding: 24px;
+  text-align: center;
+  color: #68756c;
+}
+
+/* Botones secundarios */
+
+.cnn-retry,
+.cnn-nuevo,
+.cnn-ver {
+  padding: 9px 16px;
+  border: 1px solid #287849;
+  border-radius: 6px;
+  background: transparent;
+  color: #287849;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cnn-retry:hover:not(:disabled),
+.cnn-nuevo:hover:not(:disabled),
+.cnn-ver:hover:not(:disabled) {
+  background: #eaf5ed;
+}
+
+.cnn-retry:disabled,
+.cnn-nuevo:disabled,
+.cnn-ver:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Recuperación de análisis históricos */
+
+.cnn-ver {
+  white-space: nowrap;
+}
+
+.cnn-ver.seleccionado {
+  background: #287849;
+  color: white;
+}
+
+.cnn-ver.seleccionado:hover:not(:disabled) {
+  background: #20633b;
+  color: white;
+}
+
+.cnn-table-container tbody tr.cnn-fila-activa {
+  background: #eaf5ed;
+}
+
+.cnn-info-historica {
+  padding: 16px;
+  border: 1px solid #dce3de;
+  border-radius: 8px;
+  background: #f4f7f4;
+  overflow-wrap: anywhere;
+}
+
+.cnn-info-historica p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.cnn-info-historica small {
+  display: block;
+  margin-top: 16px;
+  color: #68756c;
+  line-height: 1.5;
+}
+
+/* Diseño adaptable */
+
+@media (max-width: 800px) {
+
+  .cnn-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cnn-module {
+    padding: 16px;
+  }
+
+  .cnn-panel {
+    padding: 16px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .cnn-preview {
+    height: 220px;
+  }
+
+  .cnn-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cnn-diagnostico strong {
+    font-size: 36px;
+  }
+
+  .cnn-history-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+}

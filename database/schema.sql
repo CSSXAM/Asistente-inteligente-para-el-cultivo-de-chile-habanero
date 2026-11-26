@@ -40,3 +40,28 @@ CREATE TABLE IF NOT EXISTS historial_riego (
     CONSTRAINT chk_litros
         CHECK (litros_estimados_por_gotero >= 0)
 );
+
+USE chile_habanero_ia;
+
+CREATE TABLE IF NOT EXISTS historial_cnn (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    nombre_imagen VARCHAR(255) NOT NULL,
+
+    ruta_imagen VARCHAR(500) NOT NULL,
+
+    clase ENUM('sana', 'enferma') NOT NULL,
+
+    diagnostico VARCHAR(100) NOT NULL,
+
+    confianza DECIMAL(5,2) NOT NULL,
+
+    probabilidad_enferma DECIMAL(5,2) NOT NULL,
+
+    probabilidad_sana DECIMAL(5,2) NOT NULL,
+
+    recomendacion TEXT NOT NULL,
+
+    fecha_registro DATETIME NOT NULL
+        DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Astar from "./components/astar/Astar";
 import Fuzzy from "./components/fuzzy/Fuzzy";
+import Cnn from "./components/cnn/Cnn";
 import "./App.css";
 
 export default function App() {
@@ -26,12 +27,18 @@ export default function App() {
             Controlador de riego
           </button>
 
-          <button disabled>
+          <button
+            className={modulo === "cnn" ? "activo" : ""}
+            onClick={() => setModulo("cnn")}
+          >
             Diagnóstico de hojas
           </button>
         </nav>
       </header>
-
+      <div hidden={modulo !== "cnn"}>
+        <Cnn />
+      </div>
+      
       <div hidden={modulo !== "astar"}>
         <Astar />
       </div>

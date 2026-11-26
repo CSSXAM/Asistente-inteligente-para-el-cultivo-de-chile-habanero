@@ -40,3 +40,9 @@ checkpoints/
 # Modelos entrenados con PyTorch
 *.pt
 *.pth
+
+# Fotografías cargadas por los usuarios
+/backend/uploads/
+
+# Respaldo de dependencias
+/backend/requirements-backup.txt
